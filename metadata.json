@@ -1,0 +1,6 @@
+{
+  "name": "WebForge Studio",
+  "description": "Professional No-Code Website Creation Platform with visual canvas builder, multi-page layout engine, e-commerce cart, media manager, and zip code exporter.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
