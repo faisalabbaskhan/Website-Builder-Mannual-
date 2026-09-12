@@ -29,8 +29,8 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
     <header className="h-16 bg-[#F9F7F2] border-b border-[#1A1A1A]/10 px-6 flex items-center justify-between sticky top-0 z-30">
       {/* Brand Logo */}
       <div className="flex items-center gap-3">
-        <div className="w-9 h-9 rounded-full border border-[#1A1A1A] bg-[#E5E2D9] flex items-center justify-center text-[#1A1A1A]">
-          <Sparkles className="w-4 h-4 text-[#1A1A1A]" />
+        <div className="w-9 h-9 rounded-full border border-[#1A1A1A] bg-[#1A1A1A] flex items-center justify-center text-[#F9F7F2] overflow-hidden shadow-xs">
+          <img src="/favicon.svg" alt="Studio Lumen Logo" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
         </div>
         <div>
           <span className="font-bold text-[#1A1A1A] text-lg tracking-tight uppercase font-sans">STUDIO_LUMEN</span>

@@ -1,9 +1,76 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      (function() {
+        try {
+          var currentFetch = window.fetch;
+          
+          // 1. Prototype patch
+          if (typeof Window !== 'undefined' && Window.prototype) {
+            try {
+              var protoDesc = Object.getOwnPropertyDescriptor(Window.prototype, 'fetch');
+              if (protoDesc && !protoDesc.set && protoDesc.configurable) {
+                Object.defineProperty(Window.prototype, 'fetch', {
+                  get: function() { return currentFetch; },
+                  set: function(val) { currentFetch = val; },
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+            } catch (e) {}
+          }
+
+          // 2. Window object patch
+          try {
+            var winDesc = Object.getOwnPropertyDescriptor(window, 'fetch');
+            if (!winDesc || (!winDesc.set && winDesc.configurable)) {
+              Object.defineProperty(window, 'fetch', {
+                get: function() { return currentFetch; },
+                set: function(val) { currentFetch = val; },
+                configurable: true,
+                enumerable: true
+              });
+            }
+          } catch (e) {}
+
+          // 3. globalThis patch
+          if (typeof globalThis !== 'undefined' && globalThis !== window) {
+            try {
+              var gtDesc = Object.getOwnPropertyDescriptor(globalThis, 'fetch');
+              if (!gtDesc || (!gtDesc.set && gtDesc.configurable)) {
+                Object.defineProperty(globalThis, 'fetch', {
+                  get: function() { return currentFetch; },
+                  set: function(val) { currentFetch = val; },
+                  configurable: true,
+                  enumerable: true
+                });
+              }
+            } catch (e) {}
+          }
+        } catch (err) {}
+
+        // 4. Suppress harmless fetch getter error if raised by external environment script
+        window.addEventListener('error', function(event) {
+          if (event && event.message && event.message.indexOf('Cannot set property fetch') !== -1) {
+            if (typeof event.preventDefault === 'function') event.preventDefault();
+            if (typeof event.stopImmediatePropagation === 'function') event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>STUDIO_LUMEN - Artistic Web Design Atelier</title>
+    <title>WebForge Studio - Studio Lumen Atelier</title>
+    <meta name="description" content="Professional No-Code Website Creation Platform with visual canvas builder, multi-page layout engine, e-commerce cart, media manager, and zip code exporter." />
+    <meta property="og:title" content="WebForge Studio - Studio Lumen Atelier" />
+    <meta property="og:description" content="Professional No-Code Website Creation Platform with visual canvas builder, multi-page layout engine, e-commerce cart, media manager, and zip code exporter." />
+    <!-- Studio Lumen Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">

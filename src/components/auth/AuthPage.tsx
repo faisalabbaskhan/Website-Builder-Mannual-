@@ -57,8 +57,8 @@ export const AuthPage: React.FC<AuthPageProps> = ({ onLoginSuccess }) => {
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md z-10">
         <div className="flex items-center justify-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-full border border-[#1A1A1A] bg-[#E5E2D9] flex items-center justify-center text-[#1A1A1A]">
-            <Sparkles className="w-5 h-5 text-[#1A1A1A]" />
+          <div className="w-10 h-10 rounded-full border border-[#1A1A1A] bg-[#1A1A1A] flex items-center justify-center text-[#F9F7F2] overflow-hidden shadow-sm">
+            <img src="/favicon.svg" alt="Studio Lumen Logo" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
           </div>
           <span className="text-2xl font-bold tracking-tight uppercase tracking-[0.15em] font-sans">
             STUDIO_LUMEN

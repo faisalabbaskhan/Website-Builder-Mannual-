@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <rect width="128" height="128" rx="28" fill="#1A1A1A"/>
+  <!-- Elegant Studio Lumen 4-pointed radiant star and atelier mark -->
+  <g fill="#F9F7F2">
+    <!-- Center star diamond curves -->
+    <path d="M64 16 C64 42 42 64 16 64 C42 64 64 86 64 112 C64 86 86 64 112 64 C86 64 64 42 64 16 Z" />
+    <!-- Diagonal sparkle accents -->
+    <circle cx="64" cy="64" r="7" fill="#1A1A1A" />
+    <circle cx="64" cy="64" r="3.5" fill="#F9F7F2" />
+    <path d="M38 38 Q46 46 38 54 Q46 46 54 46 Q46 46 38 38 Z" opacity="0.8" />
+    <path d="M90 38 Q82 46 90 54 Q82 46 74 46 Q82 46 90 38 Z" opacity="0.8" />
+    <path d="M38 90 Q46 82 38 74 Q46 82 54 82 Q46 82 38 90 Z" opacity="0.8" />
+    <path d="M90 90 Q82 82 90 74 Q82 82 74 82 Q82 82 90 90 Z" opacity="0.8" />
+  </g>
+</svg>
